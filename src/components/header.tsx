@@ -4,9 +4,9 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Header() {
   const navLinks = [
-    { name: "Learn", href: "#learn" },
-    { name: "Benefits", href: "#benefits" },
-    { name: "Scam Checker", href: "#scam-checker" },
+    { name: "About DBT", href: "#learn" },
+    { name: "Key Benefits", href: "#benefits" },
+    { name: "Scam Reporting", href: "#scam-checker" },
     { name: "FAQ", href: "#faq" },
   ];
 
@@ -28,7 +28,7 @@ export function Header() {
         <div className="flex items-center space-x-2">
             <Button asChild>
                 <a href="#resources">
-                    Resources
+                    Official Links
                 </a>
             </Button>
             <ThemeToggle />

@@ -4,8 +4,8 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'AadhaarAware',
-  description: 'Enhancing student awareness on Aadhaar-linked vs DBT-enabled bank accounts.',
+  title: 'DBT Portal',
+  description: 'Official Portal for Direct Benefit Transfer. Understand Aadhaar seeding and protect yourself from scams.',
 };
 
 export default function RootLayout({

@@ -1,11 +1,11 @@
-import { ShieldCheck } from "lucide-react";
+import { Landmark } from "lucide-react";
 
 export function Logo() {
   return (
     <a href="/" className="flex items-center gap-2 group outline-none">
-      <ShieldCheck className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
+      <Landmark className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
       <span className="text-xl font-bold font-headline tracking-tight">
-        AadhaarAware
+        DBT Portal
       </span>
     </a>
   );

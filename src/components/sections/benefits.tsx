@@ -26,27 +26,29 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section id="benefits" className="space-y-8">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold font-headline tracking-tight">Why Seeding Matters</h2>
-        <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
-          The benefits of an Aadhaar-seeded account extend beyond just receiving funds.
-        </p>
-      </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {benefits.map((benefit, index) => (
-          <Card key={index} className="text-center hover:scale-105 transition-transform">
-            <CardHeader className="items-center">
-              <div className="p-3 rounded-full bg-primary/10">
-                <benefit.icon className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="pt-2">{benefit.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">{benefit.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+    <section id="benefits" className="space-y-8 py-12 bg-secondary/30">
+      <div className="container">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold font-headline tracking-tight">Key Benefits of DBT</h2>
+          <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+            The Direct Benefit Transfer system offers numerous advantages for citizens.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-8">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="text-center hover:scale-105 transition-transform bg-card">
+              <CardHeader className="items-center">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <benefit.icon className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle className="pt-2">{benefit.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{benefit.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );

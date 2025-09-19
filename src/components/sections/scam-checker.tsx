@@ -42,14 +42,14 @@ export function ScamChecker() {
 
 
   return (
-    <Card id="scam-checker" className="w-full shadow-lg">
+    <Card id="scam-checker" className="w-full shadow-lg border-primary">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-2xl font-headline">
           <Siren className="h-6 w-6 text-destructive" />
-          AI-Powered Scam Detector
+          Fraud & Scam Reporting
         </CardTitle>
         <CardDescription>
-          Received a suspicious message about Aadhaar or DBT? Paste it below and let our AI analyze it for potential threats.
+          Received a suspicious SMS, email, or message? Paste it here for an automated check.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -71,10 +71,10 @@ export function ScamChecker() {
             {state.result.isScam ? (
               <Alert variant="destructive">
                 <Siren className="h-4 w-4" />
-                <AlertTitle>Warning: Likely a Scam!</AlertTitle>
+                <AlertTitle>Warning: High Probability of Scam!</AlertTitle>
                 <AlertDescription className="space-y-2">
                   <p><strong>Explanation:</strong> {state.result.explanation}</p>
-                  <p><strong>Advice:</strong> {state.result.advice}</p>
+                  <p><strong>Recommendation:</strong> {state.result.advice}</p>
                 </AlertDescription>
               </Alert>
             ) : (
@@ -83,7 +83,7 @@ export function ScamChecker() {
                 <AlertTitle>Analysis: Likely Safe</AlertTitle>
                 <AlertDescription className="space-y-2">
                   <p><strong>Explanation:</strong> {state.result.explanation}</p>
-                  <p><strong>Advice:</strong> {state.result.advice}</p>
+                  <p><strong>Recommendation:</strong> {state.result.advice}</p>
                 </AlertDescription>
               </Alert>
             )}
