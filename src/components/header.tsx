@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export function Header() {
   const navLinks = [
+    { name: "Home", href: "/" },
     { name: "About DBT", href: "/about" },
     { name: "Key Benefits", href: "/benefits" },
     { name: "Scam Reporting", href: "/scam-reporting" },
