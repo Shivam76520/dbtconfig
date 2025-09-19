@@ -8,9 +8,11 @@ export function Hero() {
         <h1 className="text-4xl font-bold font-headline tracking-tight md:text-5xl lg:text-6xl">
           Direct Benefit Transfer Portal
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground md:text-xl animate-slide-in-from-left">
-          Government of India's initiative for transparent and efficient transfer of benefits and subsidies.
-        </p>
+        <div className="mt-4 flex justify-center">
+          <p className="mt-4 text-lg text-muted-foreground md:text-xl overflow-hidden whitespace-nowrap border-r-4 border-r-orange-500 animate-typing">
+            Government of India's initiative for transparent and efficient transfer of benefits and subsidies.
+          </p>
+        </div>
       </div>
       <div className="mt-8 flex justify-center gap-4">
         <Button size="lg" asChild>
