@@ -1,5 +1,6 @@
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Header() {
   const navLinks = [
@@ -24,12 +25,13 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
             <Button asChild>
                 <a href="#resources">
                     Resources
                 </a>
             </Button>
+            <ThemeToggle />
         </div>
       </div>
     </header>
