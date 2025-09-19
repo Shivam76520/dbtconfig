@@ -1,13 +1,13 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
 import { checkScam, ScamCheckState } from '@/app/actions';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Bot, Loader2, Siren, CheckCircle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 const initialState: ScamCheckState = {};
@@ -23,7 +23,7 @@ function SubmitButton() {
 }
 
 export function ScamChecker() {
-  const [state, formAction] = useFormState(checkScam, initialState);
+  const [state, formAction] = useActionState(checkScam, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
