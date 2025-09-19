@@ -3,7 +3,7 @@ import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GraduationCap } from 'lucide-react';
 
-export default function StudentPage() {
+export default function StudentDashboardPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -12,12 +12,12 @@ export default function StudentPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl font-headline">
               <GraduationCap className="h-8 w-8 text-primary" />
-              Student Portal
+              Student Dashboard
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Welcome to the student portal. Here you can find information about scholarships, schemes, and other resources available to you.
+              Welcome to your dashboard! Features like 'Check My Status', quizzes, and leaderboards will be available here soon.
             </p>
           </CardContent>
         </Card>

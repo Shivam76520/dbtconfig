@@ -1,9 +1,9 @@
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { User } from 'lucide-react';
+import { HeartHandshake } from 'lucide-react';
 
-export default function TeacherDashboardPage() {
+export default function VolunteerDashboardPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -11,13 +11,13 @@ export default function TeacherDashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl font-headline">
-              <User className="h-8 w-8 text-primary" />
-              Teacher Dashboard
+              <HeartHandshake className="h-8 w-8 text-primary" />
+              Volunteer Dashboard
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Welcome to the Teacher Dashboard. Tools for checking student status, reports, and analytics are coming soon.
+              Thank you for your interest in helping! Resources and tools for community volunteers will be available here soon.
             </p>
           </CardContent>
         </Card>

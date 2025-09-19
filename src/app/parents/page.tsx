@@ -3,7 +3,7 @@ import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users } from 'lucide-react';
 
-export default function ParentsPage() {
+export default function ParentsDashboardPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -12,12 +12,12 @@ export default function ParentsPage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl font-headline">
               <Users className="h-8 w-8 text-primary" />
-              Parents Portal
+              Parents Dashboard
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Welcome to the parents portal. Find information on DBT schemes and benefits available for your children.
+              Welcome to the Parents Dashboard. Soon you will be able to check your children's DBT status, access learning resources, and more.
             </p>
           </CardContent>
         </Card>

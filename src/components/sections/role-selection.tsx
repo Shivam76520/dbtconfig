@@ -1,37 +1,44 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, User, Users, GraduationCap, Shield } from "lucide-react";
+import { ArrowRight, User, Users, GraduationCap, Shield, HeartHandshake } from "lucide-react";
 
 const roles = [
   {
     href: "/student",
     icon: GraduationCap,
-    title: "Student",
-    description: "Access student-specific schemes, scholarships, and resources.",
+    title: "Kid / Student",
+    description: "Check your status, play quizzes, and earn badges!",
     color: "bg-blue-500 hover:bg-blue-600",
   },
   {
     href: "/parents",
     icon: Users,
-    title: "Parents",
-    description: "Information for parents on DBT schemes for their children.",
+    title: "Parent / Guardian",
+    description: "Manage your children's DBT status and learn more.",
     color: "bg-green-500 hover:bg-green-600",
   },
   {
     href: "/teacher",
     icon: User,
-    title: "Teacher",
-    description: "Resources and information relevant to educators and their role in DBT.",
+    title: "Teacher / School Staff",
+    description: "Track student status and access awareness toolkits.",
     color: "bg-purple-500 hover:bg-purple-600",
   },
   {
     href: "/admin",
     icon: Shield,
-    title: "Admin",
-    description: "Administrative access for managing and overseeing DBT processes.",
+    title: "Admin / Official",
+    description: "Oversee reports, analytics, and data management.",
     color: "bg-red-500 hover:bg-red-600",
   },
+  {
+    href: "/volunteer",
+    icon: HeartHandshake,
+    title: "Volunteer / Other",
+    description: "Help your community and spread awareness.",
+    color: "bg-yellow-500 hover:bg-yellow-600",
+  }
 ];
 
 export function RoleSelection() {
@@ -43,7 +50,7 @@ export function RoleSelection() {
           Access information and resources tailored to your role in the DBT ecosystem.
         </p>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {roles.map((role) => (
           <Card key={role.href} className="group overflow-hidden text-center hover:shadow-xl transition-shadow">
             <Link href={role.href} className="block h-full">
