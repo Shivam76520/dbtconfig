@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { CursorFollower } from '@/components/cursor-follower';
 
 export const metadata: Metadata = {
   title: 'DBT Portal',
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CursorFollower />
           {children}
           <Toaster />
         </ThemeProvider>

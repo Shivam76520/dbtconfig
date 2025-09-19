@@ -81,4 +81,44 @@
   body {
     @apply bg-background text-foreground;
   }
+  .cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 150, 255, 0.5) 0%, rgba(0, 150, 255, 0) 70%);
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.8), 0 0 30px rgba(0, 150, 255, 0.6);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    animation: waterflow 2s infinite ease-in-out;
+  }
+}
+
+@keyframes waterflow {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* cursor: none; */
+  }
 }
