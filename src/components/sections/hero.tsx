@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -7,16 +8,16 @@ export function Hero() {
         <h1 className="text-4xl font-bold font-headline tracking-tight md:text-5xl lg:text-6xl">
           Direct Benefit Transfer Portal
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground md:text-xl">
+        <p className="mt-4 text-lg text-muted-foreground md:text-xl animate-slide-in-from-left">
           Government of India's initiative for transparent and efficient transfer of benefits and subsidies.
         </p>
       </div>
       <div className="mt-8 flex justify-center gap-4">
         <Button size="lg" asChild>
-          <a href="#learn">Learn About DBT</a>
+          <Link href="/about">Learn About DBT</Link>
         </Button>
         <Button size="lg" variant="outline" asChild>
-          <a href="#scam-checker">Report a Scam</a>
+          <Link href="/scam-reporting">Report a Scam</Link>
         </Button>
       </div>
     </section>
