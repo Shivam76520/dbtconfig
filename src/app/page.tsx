@@ -1,7 +1,7 @@
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Hero } from '@/components/sections/hero';
-import { InfoCards } from '@/components/sections/info-cards';
+import { RoleSelection } from '@/components/sections/role-selection';
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <main className="flex-grow container mx-auto px-4 py-8 sm:py-12">
         <div className="space-y-16 md:space-y-24">
           <Hero />
-          <InfoCards />
+          <RoleSelection />
         </div>
       </main>
       <Footer />
