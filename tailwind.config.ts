@@ -103,7 +103,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'typing': 'typing 2.5s steps(75, end)',
+        'typing': 'typing 3.5s steps(88, end)',
       },
     },
   },
