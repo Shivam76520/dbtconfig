@@ -10,7 +10,7 @@ export function Hero() {
         </h1>
         <div className="mt-4 flex justify-center">
           <p className="mt-4 text-lg text-muted-foreground md:text-xl overflow-hidden whitespace-nowrap border-r-4 border-r-orange-500 animate-typing">
-            Government of India's initiative for transparent and efficient transfer of benefits and subsidies.
+            Government of India's initiative for efficient transfer of benefits and subsidies.
           </p>
         </div>
       </div>
