@@ -29,11 +29,6 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center space-x-2">
-            <Button asChild>
-                <a href="https://dbtbharat.gov.in/">
-                    Official Links
-                </a>
-            </Button>
             <ThemeToggle />
         </div>
       </div>
