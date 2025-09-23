@@ -62,11 +62,11 @@ export default function RewardsMotivationPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
-                           <p>Rohan's Quiz Score: <span className="font-bold">95%</span></p>
+                           <p>Shivam Upadhyay's Quiz Score: <span className="font-bold">95%</span></p>
                            <Badge>Top Performer</Badge>
                         </div>
                          <div className="flex items-center justify-between p-3 bg-muted rounded-lg">
-                           <p>Priya's New Badge: <span className="font-bold">"Quiz Whiz"</span></p>
+                           <p>Aakarshika Tiwari's New Badge: <span className="font-bold">"Quiz Whiz"</span></p>
                            <Button size="sm" variant="outline">View Badge</Button>
                         </div>
                     </CardContent>
