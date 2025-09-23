@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { ArrowLeft, CheckCircle, XCircle, AlertTriangle, Download, Share2, Calendar, Bank, School, HelpCircle, Sparkles, Trophy, Clock } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, AlertTriangle, Download, Share2, Calendar, Landmark, School, HelpCircle, Sparkles, Trophy, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { Progress } from '@/components/ui/progress';
 
@@ -147,7 +147,7 @@ export default function MyChildrenStatusPage() {
                     </div>
                     <div className="flex gap-4">
                          <Button variant="outline" className="w-full"><School className="mr-2" />Ask School</Button>
-                         <Button variant="outline" className="w-full"><Bank className="mr-2"/>Ask Bank</Button>
+                         <Button variant="outline" className="w-full"><Landmark className="mr-2"/>Ask Bank</Button>
                     </div>
                     <Alert className="bg-yellow-400/20 border-yellow-500/50 text-yellow-800">
                         <Trophy className="h-4 w-4 !text-yellow-800" />
