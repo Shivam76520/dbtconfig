@@ -59,8 +59,8 @@ export default function MyChildrenStatusPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="text-center">
-                <p className="text-lg"><strong>Last Credit Received:</strong> ₹1,200 on 15th June 2024</p>
-                <p className="text-muted-foreground">Next scholarship amount is expected by 15th September 2024.</p>
+                <p className="text-lg"><strong>Last Credit Received:</strong> ₹1,200 on 25th March 2025</p>
+                <p className="text-muted-foreground">Next scholarship amount is expected by 25th March 2026.</p>
               </div>
               <div className="flex gap-4">
                   <Button variant="outline" className="w-full"><Download className="mr-2"/>Download Proof</Button>
