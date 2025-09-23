@@ -10,15 +10,15 @@ import { Timeline, TimelineItem, TimelineConnector, TimelineHeader, TimelineTitl
 
 
 const children = [
-    { name: "Rohan Sharma", status: "enabled", rollNo: "2408410100057" },
-    { name: "Priya Sharma", status: "not-enabled", rollNo: "2408410100058" },
+    { name: "Shivam Upadhyay", status: "enabled", rollNo: "2408410100057" },
+    { name: "Aakarshika Tiwari", status: "not-enabled", rollNo: "2408410100076" },
     { name: "Aarav Sharma", status: "pending", rollNo: "2408410100059" },
 ]
 
 const timelineEvents = [
-    { date: "March 2025", event: "DBT Enabled for Rohan", status: "enabled" },
+    { date: "March 2025", event: "DBT Enabled for Shivam Upadhyay", status: "enabled" },
     { date: "February 2025", event: "Aadhaar Seeding for Aarav", status: "pending" },
-    { date: "December 2024", event: "Last scholarship credit received for Rohan", status: "enabled" },
+    { date: "December 2024", event: "Last scholarship credit received for Shivam Upadhyay", status: "enabled" },
 ]
 
 
