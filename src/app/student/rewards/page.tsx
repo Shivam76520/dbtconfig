@@ -22,9 +22,12 @@ const lockedBadges = [
 ];
 
 const schoolLeaderboard = [
-    { rank: 1, name: "Aisha S.", coins: 152 },
-    { rank: 2, name: "You", coins: 125 },
-    { rank: 3, name: "Rohan V.", coins: 110 },
+    { rank: 1, name: "Shivam Upadhyay", coins: 300 },
+    { rank: 2, name: "Aakarshika Tiwari", coins: 250 },
+    { rank: 3, name: "Vaishnavi", coins: 200 },
+    { rank: 4, name: "Ambika", coins: 200 },
+    { rank: 5, name: "Raunak", coins: 200 },
+    { rank: 6, name: "Akash", coins: 200 },
 ];
 
 const areaLeaderboard = [
@@ -109,10 +112,10 @@ export default function RewardsPage() {
                                 <TabsTrigger value="area">Area</TabsTrigger>
                             </TabsList>
                             <TabsContent value="school">
-                                <LeaderboardTable data={schoolLeaderboard} />
+                                <LeaderboardTable data={schoolLeaderboard} currentUser="Shivam Upadhyay" />
                             </TabsContent>
                             <TabsContent value="area">
-                                 <LeaderboardTable data={areaLeaderboard} />
+                                 <LeaderboardTable data={areaLeaderboard} currentUser="Shivam Upadhyay" />
                             </TabsContent>
                         </Tabs>
                     </CardContent>
@@ -130,7 +133,7 @@ export default function RewardsPage() {
                         <div className="flex items-center justify-between p-4 bg-secondary rounded-lg">
                             <span className="text-lg font-medium text-secondary-foreground">Your Balance:</span>
                             <span className="text-2xl font-bold text-yellow-500 flex items-center gap-2">
-                                125 <Star className="h-6 w-6"/>
+                                300 <Star className="h-6 w-6"/>
                             </span>
                         </div>
                         <Button className="w-full" disabled>
@@ -150,7 +153,7 @@ export default function RewardsPage() {
 }
 
 
-function LeaderboardTable({ data }: { data: {rank: number, name: string, coins: number}[] }) {
+function LeaderboardTable({ data, currentUser }: { data: {rank: number, name: string, coins: number}[], currentUser: string }) {
     return (
         <Table>
             <TableHeader>
@@ -162,11 +165,11 @@ function LeaderboardTable({ data }: { data: {rank: number, name: string, coins: 
             </TableHeader>
             <TableBody>
                 {data.map((entry) => (
-                    <TableRow key={entry.rank} className={entry.name === 'You' ? 'bg-primary/10' : ''}>
+                    <TableRow key={entry.rank} className={entry.name === currentUser ? 'bg-primary/10' : ''}>
                         <TableCell className="font-medium">{entry.rank}</TableCell>
                         <TableCell>
                           {entry.name}
-                          {entry.name === 'You' && <Badge variant="secondary" className="ml-2">You</Badge>}
+                          {entry.name === currentUser && <Badge variant="secondary" className="ml-2">You</Badge>}
                         </TableCell>
                         <TableCell className="text-right font-bold text-yellow-600">{entry.coins}</TableCell>
                     </TableRow>
