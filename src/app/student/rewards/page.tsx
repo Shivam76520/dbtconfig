@@ -31,9 +31,12 @@ const schoolLeaderboard = [
 ];
 
 const areaLeaderboard = [
-    { rank: 1, name: "Priya K.", coins: 210 },
-    { rank: 2, name: "Zoya M.", coins: 198 },
-    { rank: 3, name: "Harsh P.", coins: 185 },
+    { rank: 1, name: "Shivam Upadhyay", coins: 500 },
+    { rank: 2, name: "Aakarshika Tiwari", coins: 400 },
+    { rank: 3, name: "Priya K.", coins: 307 },
+    { rank: 4, name: "Zoya M.", coins: 307 },
+    { rank: 5, name: "Harsh P.", coins: 307 },
+    { rank: 6, name: "Ravi S.", coins: 307 },
 ];
 
 
