@@ -19,12 +19,12 @@ import {
 const videoTopics = [
   {
     title: "Why DBT matters for your child?",
-    videoId: "LXlA4fA232I", // Placeholder Video: "What is Direct Benefit Transfer?"
+    videoId: "qsyF-sH0oQA", // Placeholder Video: "What is Direct Benefit Transfer?"
     hint: "child smiling"
   },
   {
     title: "How to link Aadhaar in 3 steps",
-    videoId: "O_5gKy251i4", // Placeholder Video: "How to Seed Aadhaar with Bank Account"
+    videoId: "LgEw7-dD88g", // Placeholder Video: "How to Seed Aadhaar with Bank Account"
     hint: "person phone"
   },
   {
