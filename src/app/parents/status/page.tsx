@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -19,6 +19,11 @@ export default function MyChildrenStatusPage() {
   const [rollNo, setRollNo] = useState('');
   const [schoolCode, setSchoolCode] = useState('');
   const [status, setStatus] = useState<Status>('idle');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,6 +43,10 @@ export default function MyChildrenStatusPage() {
   };
 
   const renderContent = () => {
+    if (!isClient) {
+      return null;
+    }
+    
     switch (status) {
       case 'enabled':
         return (
