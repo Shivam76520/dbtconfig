@@ -206,8 +206,8 @@ export default function VolunteerDashboardPage() {
             default:
                 return renderLogin();
         }
-    }
-
+    };
+    
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
@@ -224,7 +224,7 @@ export default function VolunteerDashboardPage() {
                            {step === 'login' && 'Please enter your Aadhaar number to receive an OTP.'}
                            {step === 'otp' && 'Enter the OTP to complete your login.'}
                            {step === 'dashboard' && 'Thank you for helping our community! Here are your tools.'}
-                        </dbtStatusResult>
+                        </CardDescription>
                     </CardHeader>
                     <CardContent>
                         {renderContent()}
