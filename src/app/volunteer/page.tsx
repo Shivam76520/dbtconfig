@@ -6,20 +6,33 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { HeartHandshake, FileCheck, BookOpen, Bell, ArrowRight, KeyRound, User } from 'lucide-react';
+import { HeartHandshake, FileCheck, BookOpen, Bell, ArrowRight, KeyRound, User, Sparkles, Coins } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import Confetti from 'react-confetti';
+import { useWindowSize } from 'react-use';
+
 
 export default function VolunteerDashboardPage() {
     const [step, setStep] = useState<'login' | 'otp' | 'dashboard'>('login');
     const [aadhaar, setAadhaar] = useState('');
     const [otp, setOtp] = useState('');
     const [activeTool, setActiveTool] = useState<string | null>(null);
+    const [dbtStatusResult, setDbtStatusResult] = useState<string | null>(null);
+    const [showConfetti, setShowConfetti] = useState(false);
     const [isClient, setIsClient] = useState(false);
+    const { width, height } = useWindowSize();
 
     useEffect(() => {
         setIsClient(true);
     }, []);
+
+    useEffect(() => {
+        if(showConfetti) {
+            const timer = setTimeout(() => setShowConfetti(false), 8000); // Stop confetti after 8 seconds
+            return () => clearTimeout(timer);
+        }
+    }, [showConfetti]);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -40,6 +53,12 @@ export default function VolunteerDashboardPage() {
             alert("Invalid OTP. Please try again.");
         }
     };
+    
+    const handleCheckDbtStatus = () => {
+        // Mock status check
+        setDbtStatusResult('enabled');
+        setShowConfetti(true);
+    }
     
     const renderLogin = () => (
         <form onSubmit={handleLogin} className="space-y-4">
@@ -84,7 +103,7 @@ export default function VolunteerDashboardPage() {
         <div className="space-y-6">
             {!activeTool ? (
                  <div className="grid gap-6 md:grid-cols-3">
-                    <Card className="group overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer" onClick={() => setActiveTool('check-status')}>
+                    <Card className="group overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer" onClick={() => { setActiveTool('check-status'); setDbtStatusResult(null); }}>
                         <div className="p-6 bg-card text-center">
                             <FileCheck className="h-10 w-10 mb-4 text-primary mx-auto" />
                             <h3 className="text-xl font-bold text-card-foreground">Check DBT Status</h3>
@@ -124,8 +143,28 @@ export default function VolunteerDashboardPage() {
                                 <CardTitle>Check Community Member's DBT Status</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                 <Input placeholder="Enter member's Aadhaar number..." />
-                                 <Button>Check Status</Button>
+                                {!dbtStatusResult ? (
+                                    <>
+                                        <Input placeholder="Enter member's Aadhaar number..." />
+                                        <Button onClick={handleCheckDbtStatus}>Check Status</Button>
+                                    </>
+                                ) : (
+                                    <div className="text-center animate-in fade-in-50 zoom-in-95 duration-500 py-8">
+                                        {showConfetti && <Confetti width={width} height={height} recycle={false} numberOfPieces={400} colors={['#2563EB', '#DC2626']} />}
+                                        <Sparkles className="h-24 w-24 text-yellow-400 mx-auto animate-pulse" />
+                                        <h2 className="text-3xl font-bold text-green-500 mt-4">Your DBT is Enabled</h2>
+                                        <div className="mt-4 flex justify-center gap-4">
+                                            <div className="flex items-center gap-2">
+                                                <Coins className="h-6 w-6 text-blue-500"/>
+                                                <span className="font-bold text-lg">+10 Blue Coins</span>
+                                            </div>
+                                             <div className="flex items-center gap-2">
+                                                <Coins className="h-6 w-6 text-red-500"/>
+                                                <span className="font-bold text-lg">+5 Red Coins</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </CardContent>
                         </Card>
                     )}
@@ -185,7 +224,7 @@ export default function VolunteerDashboardPage() {
                            {step === 'login' && 'Please enter your Aadhaar number to receive an OTP.'}
                            {step === 'otp' && 'Enter the OTP to complete your login.'}
                            {step === 'dashboard' && 'Thank you for helping our community! Here are your tools.'}
-                        </CardDescription>
+                        </dbtStatusResult>
                     </CardHeader>
                     <CardContent>
                         {renderContent()}
