@@ -19,17 +19,17 @@ import {
 const videoTopics = [
   {
     title: "Why DBT matters for your child?",
-    img: "https://picsum.photos/seed/dbt-why/400/225",
+    videoId: "LXlA4fA232I", // Placeholder Video: "What is Direct Benefit Transfer?"
     hint: "child smiling"
   },
   {
     title: "How to link Aadhaar in 3 steps",
-    img: "https://picsum.photos/seed/dbt-how/400/225",
+    videoId: "O_5gKy251i4", // Placeholder Video: "How to Seed Aadhaar with Bank Account"
     hint: "person phone"
   },
   {
     title: "Common mistakes parents make",
-    img: "https://picsum.photos/seed/dbt-mistakes/400/225",
+    videoId: "R40aMh3iT4E", // Placeholder Video: "Financial Mistakes to Avoid"
     hint: "confused person"
   }
 ];
@@ -85,11 +85,17 @@ export default function LearnAndAwarePage() {
                 </CardHeader>
                 <CardContent className="grid gap-6 md:grid-cols-3">
                     {videoTopics.map(video => (
-                        <div key={video.title} className="group relative overflow-hidden rounded-lg">
-                            <Image src={video.img} alt={video.title} width={400} height={225} className="w-full object-cover transition-transform group-hover:scale-105" data-ai-hint={video.hint} />
-                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                <h3 className="text-white text-lg font-bold text-center p-2">{video.title}</h3>
+                        <div key={video.title} className="space-y-2">
+                            <div className="aspect-video w-full rounded-lg overflow-hidden border">
+                                <iframe
+                                    className="w-full h-full"
+                                    src={`https://www.youtube.com/embed/${video.videoId}?rel=0`}
+                                    title={video.title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
                             </div>
+                            <h3 className="font-semibold text-center">{video.title}</h3>
                         </div>
                     ))}
                 </CardContent>
