@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -10,32 +10,16 @@ import { HeartHandshake, FileCheck, BookOpen, Bell, ArrowRight, KeyRound, User }
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
-const volunteerTools = [
-    {
-        id: "check-status",
-        title: "Check DBT Status",
-        icon: FileCheck,
-        description: "Help community members check their DBT status using their Aadhaar number.",
-    },
-    {
-        id: "awareness-content",
-        title: "Awareness Content",
-        icon: BookOpen,
-        description: "Browse and download posters, videos, and guides to share with the community.",
-    },
-    {
-        id: "notifications",
-        title: "Notifications & Announcements",
-        icon: Bell,
-        description: "View the latest updates, campaigns, and important notices.",
-    },
-];
-
 export default function VolunteerDashboardPage() {
     const [step, setStep] = useState<'login' | 'otp' | 'dashboard'>('login');
     const [aadhaar, setAadhaar] = useState('');
     const [otp, setOtp] = useState('');
     const [activeTool, setActiveTool] = useState<string | null>(null);
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -77,7 +61,7 @@ export default function VolunteerDashboardPage() {
     const renderOtp = () => (
         <form onSubmit={handleOtpSubmit} className="space-y-4">
              <Alert>
-                <AlertDescription>An OTP has been sent to the mobile number linked with your Aadhaar.</AlertDescription>
+                <AlertDescription>An OTP has been sent to the mobile number linked with your Aadhaar. (Hint: Use 123456)</AlertDescription>
             </Alert>
             <Input 
                 type="text" 
@@ -100,30 +84,47 @@ export default function VolunteerDashboardPage() {
         <div className="space-y-6">
             {!activeTool ? (
                  <div className="grid gap-6 md:grid-cols-3">
-                    {volunteerTools.map((tool) => (
-                         <Card key={tool.id} className="group overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer" onClick={() => setActiveTool(tool.id)}>
-                            <div className="p-6 bg-card text-center">
-                                <tool.icon className="h-10 w-10 mb-4 text-primary mx-auto" />
-                                <h3 className="text-xl font-bold text-card-foreground">{tool.title}</h3>
-                                <p className="text-muted-foreground mt-2 h-16">{tool.description}</p>
-                            </div>
-                             <div className="px-6 py-3 bg-muted/50 flex items-center justify-between text-primary font-semibold">
-                                <span>Open</span>
-                                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                            </div>
-                        </Card>
-                    ))}
+                    <Card className="group overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer" onClick={() => setActiveTool('check-status')}>
+                        <div className="p-6 bg-card text-center">
+                            <FileCheck className="h-10 w-10 mb-4 text-primary mx-auto" />
+                            <h3 className="text-xl font-bold text-card-foreground">Check DBT Status</h3>
+                            <p className="text-muted-foreground mt-2 h-16">Help community members check their DBT status.</p>
+                        </div>
+                        <div className="px-6 py-3 bg-muted/50 flex items-center justify-between text-primary font-semibold">
+                            <span>Open</span><ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        </div>
+                    </Card>
+                    <Card className="group overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer" onClick={() => setActiveTool('awareness-content')}>
+                        <div className="p-6 bg-card text-center">
+                            <BookOpen className="h-10 w-10 mb-4 text-primary mx-auto" />
+                            <h3 className="text-xl font-bold text-card-foreground">Awareness Content</h3>
+                            <p className="text-muted-foreground mt-2 h-16">Browse and download posters and guides to share.</p>
+                        </div>
+                        <div className="px-6 py-3 bg-muted/50 flex items-center justify-between text-primary font-semibold">
+                            <span>Open</span><ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        </div>
+                    </Card>
+                    <Card className="group overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out cursor-pointer" onClick={() => setActiveTool('notifications')}>
+                        <div className="p-6 bg-card text-center">
+                            <Bell className="h-10 w-10 mb-4 text-primary mx-auto" />
+                            <h3 className="text-xl font-bold text-card-foreground">Notifications</h3>
+                            <p className="text-muted-foreground mt-2 h-16">View the latest updates, campaigns, and notices.</p>
+                        </div>
+                        <div className="px-6 py-3 bg-muted/50 flex items-center justify-between text-primary font-semibold">
+                            <span>Open</span><ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        </div>
+                    </Card>
                 </div>
             ) : (
                 <div className="space-y-4">
-                    <Button onClick={() => setActiveTool(null)}>Back to Dashboard</Button>
+                    <Button onClick={() => setActiveTool(null)} variant="outline">Back to Dashboard</Button>
                     {activeTool === 'check-status' && (
                         <Card>
                             <CardHeader>
-                                <CardTitle>Check DBT Status</CardTitle>
+                                <CardTitle>Check Community Member's DBT Status</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                 <Input placeholder="Enter Aadhaar number..." />
+                                 <Input placeholder="Enter member's Aadhaar number..." />
                                  <Button>Check Status</Button>
                             </CardContent>
                         </Card>
@@ -153,6 +154,21 @@ export default function VolunteerDashboardPage() {
         </div>
     );
 
+    const renderContent = () => {
+        if (!isClient) return null;
+
+        switch (step) {
+            case 'login':
+                return renderLogin();
+            case 'otp':
+                return renderOtp();
+            case 'dashboard':
+                return renderDashboard();
+            default:
+                return renderLogin();
+        }
+    }
+
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
@@ -163,7 +179,7 @@ export default function VolunteerDashboardPage() {
                            {step === 'dashboard' ? <User className="h-12 w-12 text-primary" /> : <HeartHandshake className="h-12 w-12 text-primary" />}
                         </div>
                         <CardTitle className="text-3xl font-bold font-headline text-primary">
-                            {step === 'dashboard' ? 'User Dashboard / Main Hub' : 'Volunteer Login'}
+                            {step === 'dashboard' ? 'Volunteer Hub' : 'Volunteer Login'}
                         </CardTitle>
                         <CardDescription className="text-lg">
                            {step === 'login' && 'Please enter your Aadhaar number to receive an OTP.'}
@@ -172,9 +188,7 @@ export default function VolunteerDashboardPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {step === 'login' && renderLogin()}
-                        {step === 'otp' && renderOtp()}
-                        {step === 'dashboard' && renderDashboard()}
+                        {renderContent()}
                     </CardContent>
                 </Card>
             </main>
