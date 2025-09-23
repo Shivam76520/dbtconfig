@@ -11,9 +11,9 @@ import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 
 const parentLeaderboard = [
-  { rank: 1, name: "Anita Sharma", points: 250 },
-  { rank: 2, name: "You", points: 215 },
-  { rank: 3, name: "Rajesh Kumar", points: 180 },
+  { rank: 1, name: "Vaishnavi", points: 250 },
+  { rank: 2, name: "Akash Kumar Pandey", points: 215 },
+  { rank: 3, name: "Ambika", points: 180 },
 ];
 
 export default function RewardsMotivationPage() {
@@ -108,11 +108,11 @@ export default function RewardsMotivationPage() {
                             </TableHeader>
                             <TableBody>
                                 {parentLeaderboard.map(p => (
-                                    <TableRow key={p.rank} className={p.name === 'You' ? 'bg-primary/10' : ''}>
+                                    <TableRow key={p.rank} className={p.name === 'Akash Kumar Pandey' ? 'bg-primary/10' : ''}>
                                         <TableCell className="font-bold">{p.rank}</TableCell>
                                         <TableCell>
                                             {p.name}
-                                            {p.name === 'You' && <Badge variant="secondary" className="ml-2">You</Badge>}
+                                            {p.name === 'Akash Kumar Pandey' && <Badge variant="secondary" className="ml-2">You</Badge>}
                                             {p.rank === 1 && <Badge variant="default" className="ml-2 bg-yellow-500">Ambassador</Badge>}
                                         </TableCell>
                                         <TableCell className="text-right font-bold">{p.points}</TableCell>
