@@ -12,7 +12,6 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 
-
 export default function VolunteerDashboardPage() {
     const [step, setStep] = useState<'login' | 'otp' | 'dashboard'>('login');
     const [aadhaar, setAadhaar] = useState('');
@@ -29,14 +28,13 @@ export default function VolunteerDashboardPage() {
 
     useEffect(() => {
         if(showConfetti) {
-            const timer = setTimeout(() => setShowConfetti(false), 8000); // Stop confetti after 8 seconds
+            const timer = setTimeout(() => setShowConfetti(false), 8000);
             return () => clearTimeout(timer);
         }
     }, [showConfetti]);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        // In a real app, you would send the Aadhaar number to your backend to trigger an OTP
         if (aadhaar.length === 12) {
             setStep('otp');
         } else {
@@ -46,8 +44,7 @@ export default function VolunteerDashboardPage() {
 
     const handleOtpSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // In a real app, you would verify the OTP
-        if (otp === '123456') { // Mock OTP
+        if (otp === '123456') {
             setStep('dashboard');
         } else {
             alert("Invalid OTP. Please try again.");
@@ -55,7 +52,6 @@ export default function VolunteerDashboardPage() {
     };
     
     const handleCheckDbtStatus = () => {
-        // Mock status check
         setDbtStatusResult('enabled');
         setShowConfetti(true);
     }
@@ -150,7 +146,7 @@ export default function VolunteerDashboardPage() {
                                     </>
                                 ) : (
                                     <div className="text-center animate-in fade-in-50 zoom-in-95 duration-500 py-8">
-                                        {showConfetti && <Confetti width={width} height={height} recycle={false} numberOfPieces={400} colors={['#2563EB', '#DC2626']} />}
+                                        {isClient && showConfetti && <Confetti width={width} height={height} recycle={false} numberOfPieces={400} colors={['#2563EB', '#DC2626']} />}
                                         <Sparkles className="h-24 w-24 text-yellow-400 mx-auto animate-pulse" />
                                         <h2 className="text-3xl font-bold text-green-500 mt-4">Your DBT is Enabled</h2>
                                         <div className="mt-4 flex justify-center gap-4">
@@ -194,7 +190,9 @@ export default function VolunteerDashboardPage() {
     );
 
     const renderContent = () => {
-        if (!isClient) return null;
+        if (!isClient) {
+            return null; // Render nothing on the server and during initial client render
+        }
 
         switch (step) {
             case 'login':
